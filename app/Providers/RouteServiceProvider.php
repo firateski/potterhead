@@ -46,6 +46,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapHarryRoutes();
+
         //
     }
 
@@ -76,5 +78,18 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "harry" routes for the application.
+     *
+     * @return void
+     */
+    protected function mapHarryRoutes()
+    {
+        Route::prefix('harry')
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/harry.php'));
     }
 }
