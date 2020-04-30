@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function (Request $request) {
-    return $request->user();
-});
+Route::get('/characters', 'CharacterController@index');
+Route::get('/characters/{characterId}', 'CharacterController@show');
