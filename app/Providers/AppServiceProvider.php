@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\ApiPotterService;
+use App\Http\Controllers\CharacterController;
+use App\PotterServiceInterface;
 use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,7 +27,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind('ApiPotterService', function () {
+        $this->app->bind(PotterServiceInterface::class, ApiPotterService::class);
+
+        $this->app->bind(ApiPotterService::class, function () {
             return new ApiPotterService(new Client([
                 'base_uri' => config('app.api_url'),
                 'query' => ['key' => config('app.api_key')]

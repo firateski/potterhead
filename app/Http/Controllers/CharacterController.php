@@ -9,17 +9,20 @@ use Illuminate\Support\Facades\File;
 
 class CharacterController extends Controller
 {
+    private PotterServiceInterface $potterService;
+
+    function __construct(PotterServiceInterface $potterService)
+    {
+        $this->potterService = $potterService;
+    }
+
     function index()
     {
-        $potterService = null;
-
         if (File::exists(storage_path('app') . '/characters')) {
-            $potterService = new FilePotterService();
-        } else {
-            $potterService = App::make('ApiPotterService');
+            $this->potterService = new FilePotterService();
         }
 
-        $characters = $potterService->getCharacters();
+        $characters = $this->potterService->getCharacters();
 
         $jsonResponse = array();
         foreach ($characters as $character) {
@@ -31,15 +34,11 @@ class CharacterController extends Controller
 
     function show($characterId)
     {
-        $potterService = null;
-
         if (File::exists(storage_path('app') . "/character_$characterId")) {
-            $potterService = new FilePotterService();
-        } else {
-            $potterService = App::make('ApiPotterService');
+            $this->potterService = new FilePotterService();
         }
 
-        $character = $potterService->getCharacterById($characterId);
+        $character = $this->potterService->getCharacterById($characterId);
 
         return response()->json($character->toArray());
     }
