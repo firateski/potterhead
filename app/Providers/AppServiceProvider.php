@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\ApiPotterService;
-use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\CharactersController;
 use App\PotterServiceInterface;
 use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;

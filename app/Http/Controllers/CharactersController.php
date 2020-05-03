@@ -7,7 +7,7 @@ use App\PotterServiceInterface;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 
-class CharacterController extends Controller
+class CharactersController extends Controller
 {
     private PotterServiceInterface $potterService;
 

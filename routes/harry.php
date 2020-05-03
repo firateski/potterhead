@@ -13,5 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/characters', 'CharacterController@index');
-Route::get('/characters/{characterId}', 'CharacterController@show');
+Route::get('/characters', 'CharactersController@index');
+Route::get('/characters/{characterId}', 'CharactersController@show');
