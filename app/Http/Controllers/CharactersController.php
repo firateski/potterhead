@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\FilePotterService;
-use App\Http\Resources\Character;
-use App\PotterServiceInterface;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\File;
+
+use App\Character\PotterServiceInterface;
+use App\Http\Resources\Character;
 
 class CharactersController extends Controller
 {
@@ -20,10 +18,6 @@ class CharactersController extends Controller
 
     function index(): JsonResource
     {
-        if (File::exists(storage_path('app') . '/characters')) {
-            $this->potterService = new FilePotterService();
-        }
-
         $characters = $this->potterService->getCharacters();
 
         return Character::collection(iterator_to_array($characters));
@@ -31,10 +25,6 @@ class CharactersController extends Controller
 
     function show($characterId): JsonResource
     {
-        if (File::exists(storage_path('app') . "/character_$characterId")) {
-            $this->potterService = new FilePotterService();
-        }
-
         $character = $this->potterService->getCharacterById($characterId);
 
         return new Character($character);

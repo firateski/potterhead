@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Character;
 
 interface PotterServiceInterface
 {
     public function getCharacters(): Characters;
 
-    public function getCharacterById($characherId): Character;
+    public function getCharacterById($characterId): Character;
 }

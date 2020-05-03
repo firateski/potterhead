@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Character;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\File;
