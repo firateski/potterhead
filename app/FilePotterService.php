@@ -6,17 +6,16 @@ use Illuminate\Support\Facades\File;
 
 class FilePotterService implements PotterServiceInterface
 {
-    public function getCharacters(): array
+    public function getCharacters(): Characters
     {
-        $decodedCharactersFile = unserialize(File::get(storage_path('app') . '/characters'));
+        $charactersFileContent = File::get(storage_path('app') . '/characters');
+        $decodedCharactersFile = unserialize($charactersFileContent);
 
-        return $decodedCharactersFile;
+        return new Characters(...$decodedCharactersFile);
     }
 
     public function getCharacterById($characterId): Character
     {
-        $decodedCharacterFile = unserialize(File::get(storage_path('app') . "/character_$characterId"));
-
-        return $decodedCharacterFile;
+        return unserialize(File::get(storage_path('app') . "/character_$characterId"));
     }
 }

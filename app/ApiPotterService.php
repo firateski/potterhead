@@ -14,22 +14,23 @@ class ApiPotterService implements PotterServiceInterface
         $this->client = $client;
     }
 
-    public function getCharacters(): array
+    public function getCharacters(): Characters
     {
         $request = $this->client->request('GET', 'characters');
 
         $decodedResponse = json_decode($request->getBody()->getContents());
 
-        $characters = array();
+        $characters = new Characters();
+
         foreach ($decodedResponse as $data) {
             $character = new Character();
             $character->setId($data->_id);
             $character->setName($data->name);
 
-            $characters[] = $character;
+            $characters->add($character);
         }
 
-        File::put(storage_path('app') . '/characters', serialize($characters));
+        File::put(storage_path('app') . '/characters', serialize(iterator_to_array($characters)));
 
         return $characters;
     }
