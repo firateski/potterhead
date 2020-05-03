@@ -2,7 +2,7 @@
 
 namespace App;
 
-interface IPotterService
+interface PotterServiceInterface
 {
     public function getCharacters(): array;
 

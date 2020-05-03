@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\FilePotterService;
-use App\IPotterService;
+use App\PotterServiceInterface;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 

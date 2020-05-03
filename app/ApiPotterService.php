@@ -5,7 +5,7 @@ namespace App;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\File;
 
-class ApiPotterService implements IPotterService
+class ApiPotterService implements PotterServiceInterface
 {
     private Client $client;
 

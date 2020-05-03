@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Support\Facades\File;
 
-class FilePotterService implements IPotterService
+class FilePotterService implements PotterServiceInterface
 {
     public function getCharacters(): array
     {
