@@ -30,7 +30,7 @@ class ApiPotterService implements PotterServiceInterface
             $characters->add($character);
         }
 
-        File::put(storage_path('app') . '/characters', serialize(iterator_to_array($characters)));
+        File::put(storage_path('app/characters') , serialize(iterator_to_array($characters)));
 
         return $characters;
     }
@@ -45,7 +45,7 @@ class ApiPotterService implements PotterServiceInterface
         $character->setId($decodedResponse->_id);
         $character->setName($decodedResponse->name);
 
-        File::put(storage_path('app') . "/character_$characterId", serialize($character));
+        File::put(storage_path('app/character_' . $characterId), serialize($character));
 
         return $character;
     }

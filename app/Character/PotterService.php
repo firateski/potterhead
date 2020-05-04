@@ -17,7 +17,7 @@ class PotterService implements PotterServiceInterface{
 
     public function getCharacters(): Characters
     {
-        if ($this->isFileCached(storage_path('app') . '/characters')) {
+        if ($this->isFileCached(storage_path('app/characters'))) {
             $this->potterService = new FilePotterService();
         }
 
@@ -26,7 +26,7 @@ class PotterService implements PotterServiceInterface{
 
     public function getCharacterById($characterId): Character
     {
-        if ($this->isFileCached(storage_path('app') . "/character_$characterId")) {
+        if ($this->isFileCached(storage_path('app/character_' . $characterId))) {
             $this->potterService = new FilePotterService();
         }
 
