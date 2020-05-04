@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-use App\Character\PotterServiceInterface;
+use App\PotterService\PotterServiceInterface;
 use App\Http\Resources\Character;
 
 class CharactersController extends Controller

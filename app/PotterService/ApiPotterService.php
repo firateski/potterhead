@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Character;
+namespace App\PotterService;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\File;
+
+use App\Character\Character;
+use App\Character\Characters;
 
 class ApiPotterService implements PotterServiceInterface
 {

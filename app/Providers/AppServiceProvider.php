@@ -5,9 +5,9 @@ namespace App\Providers;
 use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 
-use App\Character\PotterServiceInterface;
-use App\Character\PotterService;
-use App\Character\ApiPotterService;
+use App\PotterService\PotterServiceInterface;
+use App\PotterService\PotterService;
+use App\PotterService\ApiPotterService;
 
 class AppServiceProvider extends ServiceProvider
 {

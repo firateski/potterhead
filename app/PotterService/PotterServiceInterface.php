@@ -1,6 +1,9 @@
 <?php
 
-namespace App\Character;
+namespace App\PotterService;
+
+use App\Character\Character;
+use App\Character\Characters;
 
 interface PotterServiceInterface
 {
