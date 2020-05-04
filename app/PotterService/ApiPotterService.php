@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\File;
 use App\Character\Character;
 use App\Character\Characters;
 
-class ApiPotterService implements PotterServiceInterface
+class ApiPotterService implements PotterService
 {
     private Client $client;
 

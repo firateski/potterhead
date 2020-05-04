@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\PotterService\PotterServiceManager;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-use App\PotterService\PotterServiceInterface;
 use App\Http\Resources\Character;
 
 class CharactersController extends Controller
 {
-    private PotterServiceInterface $potterService;
+    private PotterServiceManager $potterServiceManager;
 
-    function __construct(PotterServiceInterface $potterService)
+    function __construct(PotterServiceManager $potterServiceManager)
     {
-        $this->potterService = $potterService;
+        $this->potterServiceManager = $potterServiceManager;
     }
 
     function index(): JsonResource
     {
-        $characters = $this->potterService->getCharacters();
+        $characters = $this->potterServiceManager->getCharacters();
 
         return Character::collection(iterator_to_array($characters));
     }
 
     function show($characterId): JsonResource
     {
-        $character = $this->potterService->getCharacterById($characterId);
+        $character = $this->potterServiceManager->getCharacterById($characterId);
 
         return new Character($character);
     }

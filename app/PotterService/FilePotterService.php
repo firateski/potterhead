@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\File;
 use App\Character\Character;
 use App\Character\Characters;
 
-class FilePotterService implements PotterServiceInterface
+class FilePotterService implements PotterService
 {
     public function getCharacters(): Characters
     {
